@@ -1,8 +1,11 @@
 # HYROX Frankfurt Ticket Crawler 🏃‍♂️
 
+
 > **⚠️ DISCLAIMER: This project is 100% vibe coded.** It was built with pure enthusiasm, minimal planning, and maximum coffee. Use at your own risk and enjoy the chaos! 🎯
 
 A Python script that crawls the [HYROX Frankfurt event page](https://hyrox.com/event/hyrox-frankfurt/) and sends you a Pushover notification when "Ticket sales start soon!" **disappears** from the page (indicating tickets might be available!).
+
+A part of me just hopes that it breaks, but it seems to run pretty stable... 
 
 ## 🚀 Features
 
