@@ -103,7 +103,7 @@ def crawl_hyrox_website(
         # Get all text content from the page
         page_text: str = soup.get_text()
 
-        if search_term.lower() not in page_text.lower():
+        if search_term.lower() in page_text.lower():
             print(f"🎯 FOUND: '{search_term}' was found on the page!")
 
             # Try to find the exact context where the term appears
