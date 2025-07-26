@@ -160,10 +160,9 @@ def main() -> None:
     print("\n" + "=" * 50)
     if found:
         print("🎉 SUCCESS: The target term was not found!")
-        sys.exit(0)
-    else:
-        print("😞 RESULT: The target term was found.")
-        sys.exit(0)
+        return
+
+    print("😞 RESULT: The target term was found.")
 
 
 main()
