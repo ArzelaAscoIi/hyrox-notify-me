@@ -1,0 +1,43 @@
+name: Daily Status Ping
+
+on:
+  schedule:
+    # Run daily at 17:00 UTC (6pm Berlin time)
+    - cron: '0 17 * * *'
+  workflow_dispatch:  # Allow manual triggering
+  push:
+    branches:
+      - main
+
+jobs:
+  daily-ping:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+    
+    - name: Send daily status notification
+      env:
+        PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+        PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+      run: |
+        echo "🚀 Sending daily status ping at $(date)"
+        echo "🇩🇪 Berlin time: $(TZ=Europe/Berlin date)"
+        python daily_status_ping.py
+    
+    - name: Log daily ping completion
+      if: always()
+      run: |
+        echo "✅ Daily status ping completed at $(date)"
+        echo "📊 Exit code: $?" 
