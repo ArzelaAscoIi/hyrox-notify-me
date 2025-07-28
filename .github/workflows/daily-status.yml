@@ -2,8 +2,8 @@ name: Daily Status Ping
 
 on:
   schedule:
-    # Run daily at 17:00 UTC (6pm Berlin time)
-    - cron: '0 17 * * *'
+    # Run daily at 15:00 UTC (6pm Berlin time)
+    - cron: '0 15 * * *'
   workflow_dispatch:  # Allow manual triggering
   push:
     branches:
